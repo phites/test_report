@@ -1,0 +1,77 @@
+{
+    "project_metadata": {
+        "report_id": "TR-HMD 2025-04-0291",
+        "report_title": "TEST REPORT",
+        "project_name": "Supply, Testing and Delivery of (15) Custom Made Dataloggerfor Panay River Basin",
+        "pcb_id": "W2025090622552098",
+        "revision": "A",
+        "client_name": "Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA)",
+        "test_date": "January 31, 2026",
+        "tested_by": "John Vince Papa"
+    },
+    "equipment_used": [
+        {
+            "tool": "Digital Multimeter",
+            "model": "HDM3055 Series"
+        },
+        {
+            "tool": "Mixed Signal Oscilloscopes",
+            "model": "Rigol DS1054Z"
+        },
+        {
+            "tool": "Programmer/Debugger",
+            "model": "Segger 8.08.00 J-Link Base"
+        }
+    ],
+    "test_results": [
+        {
+            "serial_number": "23010187",
+            "timestamp": "2023-10-27T09:15:00Z",
+            "visual_inspection": {
+                "pcb_quality": "PASS",
+                "soldering": "PASS",
+                "component_orientation": "PASS",
+                "notes": "No visual defects."
+            },
+            "electrical_tests": [
+                {
+                    "test_id": "E-01",
+                    "parameter": "Input Voltage",
+                    "expected": "12.0V",
+                    "measured": "12.01V",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-02",
+                    "parameter": "3.3V Rail",
+                    "expected": "3.3V +/- 5%",
+                    "measured": "3.29V",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-03",
+                    "parameter": "Idle Current",
+                    "expected": "< 100mA",
+                    "measured": "42mA",
+                    "status": "PASS"
+                }
+            ],
+            "functional_tests": [
+                {
+                    "test_id": "F-01",
+                    "feature": "Firmware Flash",
+                    "observation": "Flash verified",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-02",
+                    "feature": "Status LED",
+                    "observation": "Blinks Green",
+                    "status": "PASS"
+                }
+            ],
+            "errata_notes": "None",
+            "final_verdict": "PASS"
+        }
+    ]
+}
