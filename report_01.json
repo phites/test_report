@@ -143,38 +143,116 @@
             "functional_tests": [
                 {
                     "test_id": "F-01",
-                    "feature": "[Flash] Upload Firmware",
-                    "observation": "Pages verified",
+                    "feature": "[PTSA: Flash] Upload Firmware",
+                    "observation": "SWD lines are properly connected and can upload to the Hardware Accelerator (HA) SoM.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-02",
-                    "feature": "[Flash] Enabling access port protection mechanism",
-                    "observation": "Security protection applied",
-                    "status": "PASS"
-                },
-                {
-                    "test_id": "F-02",
-                    "feature": "[Flash] Signing keys for Device Firmware Upgrade (DFU)",
-                    "observation": "Digital signing keys respected",
+                    "feature": "[PTSA: Flash] Enabling access port protection mechanism",
+                    "observation": "Security protection applied, and when the intention to retrieve the flash is performed the pages are erased.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-03",
-                    "feature": "[Logic] Shell commands",
-                    "observation": "All commands are tested and working.",
+                    "feature": "[PTSA: Flash] Signing keys for Device Firmware Upgrade (DFU)",
+                    "observation": "Digital signing keys are respected, therefore unsigned application are not considered valid.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-04",
-                    "feature": "[Hardware] Power Control",
-                    "observation": "Buck and boost converted are controlled",
+                    "feature": "[PTSA: Firmware] DFU Button",
+                    "observation": "Long press to start the DFU process.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-05",
-                    "feature": "[Hardware] DFU Button",
-                    "observation": "Long press to start the DFU process okay,",
+                    "feature": "[PTSA: Firmware] Shell commands",
+                    "observation": "All commands are tested and working. List of the following available commands: sim_pwr, sys_info, power_ctrl, sys_reboot, buzzer (with subcommands control and toggle), sdi, retval, history, help, and stats.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-06",
+                    "feature": "[PTSA: Firmware] SDI-12 AFE",
+                    "observation": "Analog-Front-End design for SDI-12 is working properly. It has been tested with several SDI-12 enabled devices such as SenseCAP CO2 (SKU 101991028) and the actual provided OTT-RLS for water level",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-07",
+                    "feature": "[PTSA: Hardware] Power Control",
+                    "observation": "Indenpendent control to EFuse, Buck-Converter, and modem power tree.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-08",
+                    "feature": "[MCB: Hardware] ???",
+                    "observation": "When MCU is removed, the system should not power up.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-09",
+                    "feature": "[MCB: Protocol] UART Protocol",
+                    "observation": "Ability to perform SDI-12 commands to Hardware Accelerator (see F-06) via UART1",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-10",
+                    "feature": "[MCB: Modem] Binary update",
+                    "observation": "A custom binary has been built to accommodate Bluetooth SPP in expense to removal of OTA, confirmed the binary update by performing AT+GMR",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-11",
+                    "feature": "[MCB: Modem] UART Control",
+                    "observation": "Ability to perform AT commands to on-board WiFi and BLE-capable modem via UART2",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-12",
+                    "feature": "[MCB: Protocol] UART",
+                    "observation": "5V-tolerant protocol via UART6. Recommendation: Due to some variances in UART AFE on the market, it is highly advisable to add a 100 ohms terminating resistor closer to the terminal block.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-13",
+                    "feature": "[MCB: Protocol] UART",
+                    "observation": "Ability to perform AT commands to PTSA's cellular modem via UART6",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-14",
+                    "feature": "[MCB: Protocol] CAN Bus",
+                    "observation": "CANH and CANL are observe to properly performed recessive and dominant logic, while the test shows only using the UART. The CAN software layer are performed at MCU-level",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-15",
+                    "feature": "[MCB: Protocol] RS232",
+                    "observation": "Ability to perform UART protocol on a RS232 logic levels via UART8",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-16",
+                    "feature": "[MCB: Protocol] RS485",
+                    "observation": "Ability to perform UART protocol on a RS485 logic levels via UART4, only supports half-duplex communication without the expense of additional direction pin. Recommendation: During testing, the inverting lines must be terminated with another RS485-capable device",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-17",
+                    "feature": "[MCB: Protocol] RS232",
+                    "observation": "Ability to perform UART protocol on a RS232 logic levels via UART5",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-18",
+                    "feature": "[MCB: Protocol] Debounced Inputs",
+                    "observation": "Intelligently identify and remove debounced on the lines.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-19",
+                    "feature": "[MCB: Protocol] Buttons",
+                    "observation": "On-board reset button attached to the debounced inputs (see F-18)",
                     "status": "PASS"
                 }
             ],
