@@ -36,37 +36,145 @@
             "electrical_tests": [
                 {
                     "test_id": "E-01",
-                    "parameter": "Input Voltage",
-                    "expected": "12.0V",
-                    "measured": "12.01V",
+                    "parameter": "[Power] Input voltage range",
+                    "expected": "9V to 30V",
+                    "measured": "Tested to work from 9V to 30V",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-02",
-                    "parameter": "3.3V Rail",
-                    "expected": "3.3V +/- 5%",
-                    "measured": "3.29V",
+                    "parameter": "[Power] Device Shutdown",
+                    "expected": "Device power off when switching via SW2",
+                    "measured": "Power consumption drops to ~0.05mA at ~12V",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-03",
-                    "parameter": "Idle Current",
+                    "parameter": "[Protection] Undervoltage Lockout",
+                    "expected": "8.82V minimum, 8.96V maximum",
+                    "measured": "Within the tolerances",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-04",
+                    "parameter": "[Protection] Over Voltage Cut-Off Set Point",
+                    "expected": "32V minimum, 35V maximum",
+                    "measured": "Typical at 32.8V. Recommendation: Expected to run at voltage lower than the typical.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-05",
+                    "parameter": "[Protection] Current Protection and Power Limit",
+                    "expected": "Device shutdown if total current reaches 6.12A (at 5.1% tolerance) or if total power reaches ~100W, whichever comes first",
+                    "measured": "Fault indicator triggered (see E-04), followed by system shutdown.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-06",
+                    "parameter": "[System] Fault response",
+                    "expected": "Auto-retry, the system will check consecutively if fault is removed",
+                    "measured": "Systems perform bistable reset if fault is still present, otherwise will resume normal operation when fault is removed.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-07",
+                    "parameter": "[Indicator] Fault Indicator",
+                    "expected": "LED will light if undervoltage lockout (See E-02) is detected or during power fail detection (See E-03)",
+                    "measured": "Lights up in accordance to the expected voltage values",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-08",
+                    "parameter": "[Indicator] Power Good Indicator",
+                    "expected": "LED will light if input voltage reaches ~11.89V",
+                    "measured": "Lights up in accordance to the expected voltage values",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-09",
+                    "parameter": "[Protection] Reverse Polarity",
+                    "expected": "System disabled",
+                    "measured": "3.29V",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-10",
+                    "parameter": "[Protection] Reverse Current Blocking",
+                    "expected": "N/A",
+                    "measured": "Recommendation: The device should only be powered using the DC barrel jack or Terminal Block at MCB",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-11",
+                    "parameter": "[Power] +5.0V Rail",
                     "expected": "< 100mA",
                     "measured": "42mA",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-12",
+                    "parameter": "[Protection] +5.0V Rail Hiccup-mode protection",
+                    "expected": "< 100mA",
+                    "measured": "42mA",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-13",
+                    "parameter": "[Protection] +5.0V Rail Junction Temperature",
+                    "expected": "Minimum of -40°C to a Maximum of +150 °C",
+                    "measured": "Reaches a constant of <=110 °C at 5A, with a line regulation from 12V input supply. Recommendation: Do not remove passive heatsink from the back for proper operation.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-14",
+                    "parameter": "[Power] +3.3V Rail: Output voltage ± 2%",
+                    "expected": "Output voltage swing of 3.234V to 3.366V",
+                    "measured": "Within tolerances limits",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "E-15",
+                    "parameter": "[Power] +3.3V Rails: LDO's for Modem and MCU Peripherals",
+                    "expected": "Dropout voltage of <=400mV, from constant output current of >=2A",
+                    "measured": "Significantly lower than the maximum droupout voltage.",
                     "status": "PASS"
                 }
             ],
             "functional_tests": [
                 {
                     "test_id": "F-01",
-                    "feature": "Firmware Flash",
-                    "observation": "Flash verified",
+                    "feature": "[Flash] Upload Firmware",
+                    "observation": "Pages verified",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-02",
-                    "feature": "Status LED",
-                    "observation": "Blinks Green",
+                    "feature": "[Flash] Enabling access port protection mechanism",
+                    "observation": "Security protection applied",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-02",
+                    "feature": "[Flash] Signing keys for Device Firmware Upgrade (DFU)",
+                    "observation": "Digital signing keys respected",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-03",
+                    "feature": "[Logic] Shell commands",
+                    "observation": "All commands are tested and working.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-04",
+                    "feature": "[Hardware] Power Control",
+                    "observation": "Buck and boost converted are controlled",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-05",
+                    "feature": "[Hardware] DFU Button",
+                    "observation": "Long press to start the DFU process okay,",
                     "status": "PASS"
                 }
             ],
