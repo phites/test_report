@@ -21,6 +21,18 @@
         {
             "tool": "Programmer/Debugger",
             "model": "Segger 8.08.00 J-Link Base"
+        },
+        {
+            "tool": "Digital PSU",
+            "model": "---"
+        },
+        {
+            "tool": "Electronic Load",
+            "model": "---"
+        },
+        {
+            "tool": "Logic Analyzer",
+            "model": "---"
         }
     ],
     "test_results": [
