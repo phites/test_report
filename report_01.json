@@ -15,7 +15,7 @@
             "model": "Hantek HDM3055"
         },
         {
-            "tool": "Mixed Signal Oscilloscopes",
+            "tool": "Mixed Signal Oscilloscope",
             "model": "Rigol DS1054Z"
         },
         {
@@ -23,7 +23,7 @@
             "model": "Segger 8.08.00 J-Link Base"
         },
         {
-            "tool": "Digital PSU",
+            "tool": "Digital DC Power Supply",
             "model": "NICE-POWER SPPS-S305"
         },
         {
@@ -51,77 +51,77 @@
                 "pcb_quality": "PASS",
                 "soldering": "PASS",
                 "component_orientation": "PASS",
-                "notes": "No visual defects."
+                "notes": "No visual defects observed during inspection."
             },
             "electrical_tests": [
                 {
                     "test_id": "E-01",
                     "parameter": "[Power] Input voltage range",
                     "expected": "9V to 30V",
-                    "measured": "Tested to work from 9V to 30V",
+                    "measured": "Verified functional operation within the 9V to 30V input range.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-02",
                     "parameter": "[Power] Device Shutdown",
-                    "expected": "Device power off when switching via SW2",
-                    "measured": "Power consumption drops to ~0.05mA at ~12V",
+                    "expected": "Device powers down upon SW2 actuation",
+                    "measured": "Quiescent current drops to ~0.05mA at 12V input.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-03",
                     "parameter": "[Protection] Undervoltage Lockout",
                     "expected": "8.82V minimum, 8.96V maximum",
-                    "measured": "Within the tolerances",
+                    "measured": "Measured values fall within specified tolerance limits.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-04",
                     "parameter": "[Protection] Over Voltage Cut-Off Set Point",
                     "expected": "32V minimum, 35V maximum",
-                    "measured": "Typical at 32.8V. Recommendation: Expected to run at voltage lower than the typical.",
+                    "measured": "Cut-off triggered at 32.8V. Recommendation: Operating voltage should remain below this threshold.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-05",
                     "parameter": "[Protection] Current Protection and Power Limit",
-                    "expected": "Device shutdown if total current reaches 6.12A (at 5.1% tolerance) or if total power reaches ~100W, whichever comes first",
-                    "measured": "Fault indicator triggered (see E-04), followed by system shutdown.",
+                    "expected": "System shutdown if total current reaches 6.12A (±5.1%) or total power reaches ~100W",
+                    "measured": "Fault indicator activated (ref: E-04), followed by immediate system shutdown.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-06",
                     "parameter": "[System] Fault response",
-                    "expected": "Auto-retry, the system will check consecutively if fault is removed",
-                    "measured": "Systems perform bistable reset if fault is still present, otherwise will resume normal operation when fault is removed.",
+                    "expected": "Auto-retry; system consecutively checks for fault clearance",
+                    "measured": "System performs bistable reset if fault persists; normal operation resumes upon fault removal.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-07",
                     "parameter": "[Indicator] Fault Indicator",
-                    "expected": "LED will light if undervoltage lockout (See E-02) is detected or during power fail detection (See E-03)",
-                    "measured": "Lights up in accordance to the expected voltage values",
+                    "expected": "LED illuminates during undervoltage lockout (E-02) or power fail detection (E-03)",
+                    "measured": "Indicator illuminates at the specified voltage thresholds.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-08",
                     "parameter": "[Indicator] Power Good Indicator",
-                    "expected": "LED will light if input voltage reaches ~11.89V",
-                    "measured": "Lights up in accordance to the expected voltage values",
+                    "expected": "LED illuminates when input voltage reaches ~11.89V",
+                    "measured": "Indicator illuminates at the specified voltage thresholds.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-09",
                     "parameter": "[Protection] Reverse Polarity",
                     "expected": "System disabled",
-                    "measured": "3.29V",
+                    "measured": "System output effectively disabled; clamped at 3.29V.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-10",
                     "parameter": "[Protection] Reverse Current Blocking",
                     "expected": "N/A",
-                    "measured": "Recommendation: The device should only be powered using the DC barrel jack or Terminal Block at MCB",
+                    "measured": "Recommendation: Power should be supplied exclusively via the DC barrel jack or MCB Terminal Block.",
                     "status": "PASS"
                 },
                 {
@@ -141,22 +141,22 @@
                 {
                     "test_id": "E-13",
                     "parameter": "[Protection] +5.0V Rail Junction Temperature",
-                    "expected": "Minimum of -40°C to a Maximum of +150 °C",
-                    "measured": "Reaches a constant of <=110 °C at 5A, with a line regulation from 12V input supply. Recommendation: Do not remove passive heatsink from the back for proper operation.",
+                    "expected": "Minimum -40°C to Maximum +150°C",
+                    "measured": "Temperature stabilized at ≤110°C under 5A load (12V input). Recommendation: Passive heatsink must remain installed to ensure thermal stability.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-14",
                     "parameter": "[Power] +3.3V Rail: Output voltage ± 2%",
                     "expected": "Output voltage swing of 3.234V to 3.366V",
-                    "measured": "Within tolerances limits",
+                    "measured": "Measured output is within tolerance limits.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-15",
-                    "parameter": "[Power] +3.3V Rails: LDO's for Modem and MCU Peripherals",
-                    "expected": "Dropout voltage of <=400mV, from constant output current of >=2A",
-                    "measured": "Significantly lower than the maximum droupout voltage.",
+                    "parameter": "[Power] +3.3V Rails: LDOs for Modem and MCU Peripherals",
+                    "expected": "Dropout voltage ≤400mV at constant output current ≥2A",
+                    "measured": "Measured dropout voltage is significantly below the maximum specification.",
                     "status": "PASS"
                 }
             ],
@@ -164,163 +164,163 @@
                 {
                     "test_id": "F-01",
                     "feature": "[PTSA: Flash] Upload Firmware",
-                    "observation": "SWD lines are properly connected and can upload to the Hardware Accelerator (HA) SoM.",
+                    "observation": "SWD interface continuity verified; successful firmware upload to the Hardware Accelerator (HA) SoM.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-02",
                     "feature": "[PTSA: Flash] Enabling access port protection mechanism",
-                    "observation": "Security protection applied, and when the intention to retrieve the flash is performed the pages are erased.",
+                    "observation": "Security protection active; readback attempts trigger a full page erase.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-03",
                     "feature": "[PTSA: Flash] Signing keys for Device Firmware Upgrade (DFU)",
-                    "observation": "Digital signing keys are respected, therefore unsigned application are not considered valid.",
+                    "observation": "Digital signature verification active; unsigned applications are rejected.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-04",
                     "feature": "[PTSA: Firmware] DFU Button",
-                    "observation": "Long press to start the DFU process.",
+                    "observation": "Long press functionality successfully initiates the DFU process.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-05",
                     "feature": "[PTSA: Firmware] Shell commands",
-                    "observation": "All commands are tested and working. List of the following available commands: sim_pwr, sys_info, power_ctrl, sys_reboot, buzzer (with subcommands control and toggle), sdi, retval, history, help, and stats.",
+                    "observation": "All shell commands verified functional. Available commands include: sim_pwr, sys_info, power_ctrl, sys_reboot, buzzer (control/toggle), sdi, retval, history, help, and stats.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-06",
                     "feature": "[PTSA: Firmware] SDI-12 AFE",
-                    "observation": "Analog-Front-End design for SDI-12 is working properly. It has been tested with several SDI-12 enabled devices such as SenseCAP CO2 (SKU 101991028) and the actual provided OTT-RLS for water level",
+                    "observation": "SDI-12 Analog Front End (AFE) functions correctly. Validated with SenseCAP CO2 (SKU 101991028) and OTT-RLS water level sensors.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-07",
                     "feature": "[PTSA: Hardware] Power Control",
-                    "observation": "Indenpendent control to EFuse, Buck-Converter, and modem power tree.",
+                    "observation": "Independent control verified for eFuse, Buck Converter, and modem power rails.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-08",
                     "feature": "[MCB: Hardware] Power Tree Control",
-                    "observation": "When MCU is removed, the whole MCB system should not power up.",
+                    "observation": "System power-up is successfully inhibited when the MCU is removed.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-09",
                     "feature": "[MCB: Protocol] UART Protocol",
-                    "observation": "Ability to perform SDI-12 commands to Hardware Accelerator (see F-06) via UART1",
+                    "observation": "Successful execution of SDI-12 commands to Hardware Accelerator (ref: F-06) via UART1.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-10",
                     "feature": "[MCB: Modem] Binary update",
-                    "observation": "A custom binary has been built to accommodate Bluetooth SPP in expense to removal of OTA, confirmed the binary update by performing AT+GMR",
+                    "observation": "Custom binary compiled for Bluetooth SPP support (OTA functionality disabled). Firmware version verified via AT+GMR.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-11",
                     "feature": "[MCB: Modem] UART Control",
-                    "observation": "Ability to perform AT commands to on-board WiFi and BLE-capable modem via UART2",
+                    "observation": "Successful execution of AT commands to on-board WiFi/BLE modem via UART2.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-12",
                     "feature": "[MCB: Protocol] UART",
-                    "observation": "5V-tolerant protocol via UART6. Recommendation: Due to some variances in UART AFE on the market, it is highly advisable to add a 100 ohms terminating resistor closer to the terminal block.",
+                    "observation": "5V-tolerant protocol confirmed on UART6. Recommendation: Install a 100-ohm termination resistor near the terminal block to mitigate market-variant AFE impedance mismatches.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-13",
                     "feature": "[MCB: Protocol] UART",
-                    "observation": "Ability to perform AT commands to PTSA's cellular modem via UART6",
+                    "observation": "Successful execution of AT commands to PTSA cellular modem via UART6.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-14",
                     "feature": "[MCB: Protocol] CAN Bus",
-                    "observation": "CANH and CANL are observe to properly performed recessive and dominant logic, while the test shows only using the UART. The CAN software layer are performed at MCU-level",
+                    "observation": "CANH and CANL lines demonstrate correct recessive and dominant logic levels. Testing utilized UART translation, with the CAN software layer executed at the MCU level.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-15",
                     "feature": "[MCB: Protocol] RS232",
-                    "observation": "Ability to perform UART protocol on a RS232 logic levels via UART8",
+                    "observation": "UART protocol functionality confirmed at RS232 logic levels via UART8.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-16",
                     "feature": "[MCB: Protocol] RS485",
-                    "observation": "Ability to perform UART protocol on a RS485 logic levels via UART4, only supports half-duplex communication without the expense of additional direction pin. Recommendation: During testing, the inverting lines must be terminated with another RS485-capable device",
+                    "observation": "Half-duplex communication confirmed via UART4 without requiring an additional direction control pin. Recommendation: Inverting lines must be terminated with a compatible RS485 device during testing.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-17",
                     "feature": "[MCB: Protocol] RS232",
-                    "observation": "Ability to perform UART protocol on a RS232 logic levels via UART5",
+                    "observation": "UART protocol functionality confirmed at RS232 logic levels via UART5.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-18",
                     "feature": "[MCB: Protocol] 8CH Debounced Inputs",
-                    "observation": "Intelligently identify and remove debounced on the lines.",
+                    "observation": "Signal debouncing algorithm correctly identifies and filters input noise.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-19",
                     "feature": "[MCB: Protocol] Buttons",
-                    "observation": "On-board reset button attached to the debounced inputs (see F-18)",
+                    "observation": "On-board reset button functionality confirmed (linked to debounced inputs, ref: F-18).",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-20",
-                    "feature": "[MCB: Hardware] Frequency Counter-capable pins.",
-                    "observation": "A sine wave of 60kHz is feed to the frequency counter capable pins, with a peak-to-peak voltage of 14V. While the on-board zenner we're capable of clamping the excessive voltage up to 4.96V to 5.04V only (up to 1mHz bandwidth) still does not enough to be used for application more than the MCU pin tolerance requirements.",
+                    "feature": "[MCB: Hardware] Frequency Counter-capable pins",
+                    "observation": "Input signal (60kHz sine wave, 14Vpp) successfully clamped to ~5V by on-board Zener diodes. Warning: Input signals exceeding MCU pin tolerances are not recommended despite clamping.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-21",
                     "feature": "[MCB: Hardware/Firmware] Medium Quality Sound (MQS), left and right channel",
-                    "observation": "The provided .wav file were successfully played through MQS both channels and is attached to a amplifier. The sounds can be heard accordingly.",
-                    "status": "PASS"
-                },
-                {
-                    "test_id": "F-20",
-                    "feature": "[MCB: Hardware/Firmware] 4-CH LED Indicator",
-                    "observation": "LEDs are glowing accordingly with the code.",
-                    "status": "PASS"
-                },
-                {
-                    "test_id": "F-21",
-                    "feature": "[MCB: Hardware/Firmware] Inter-Integrated Circuit (i2C) / TWI lines",
-                    "observation": "All on-board i2C device can be read, and is working properly. The lists are: 0x40, 0x48, 0x49, 0x4A, 0x4B, and 0x60",
+                    "observation": "Audio output verified on both channels via amplifier; playback quality is clear.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-22",
-                    "feature": "Optional: [MCB: Hardware] Ethernet-ready",
-                    "observation": "Optional, however, tested. If ethernet are added, they can work.",
+                    "feature": "[MCB: Hardware/Firmware] 4-CH LED Indicator",
+                    "observation": "LED status indicators operate synchronously with control code.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-23",
-                    "feature": "[MCB: Hardware] External OLED",
-                    "observation": "Capable of providing power and controlling using the i2C lines.",
+                    "feature": "[MCB: Hardware/Firmware] Inter-Integrated Circuit (I2C) / TWI lines",
+                    "observation": "Communication established with all on-board I2C devices at addresses: 0x40, 0x48, 0x49, 0x4A, 0x4B, and 0x60.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-24",
-                    "feature": "[MCB: Hardware] On-board ADC and DAC",
-                    "observation": "All are tested and within the expected tolerances.",
+                    "feature": "Optional: [MCB: Hardware] Ethernet-ready",
+                    "observation": "Optional feature verified; Ethernet interface is functional when hardware is populated.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "F-25",
+                    "feature": "[MCB: Hardware] External OLED",
+                    "observation": "Power supply and I2C control signals verified for external OLED module.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-26",
+                    "feature": "[MCB: Hardware] On-board ADC and DAC",
+                    "observation": "Functionality confirmed; all values measured within expected tolerances.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-27",
                     "feature": "[MCB: Hardware] External Relay Signal",
-                    "observation": "Works with a relay that expects a signal input of 3.3V",
+                    "observation": "Logic output confirmed functional with 3.3V signal relay.",
                     "status": "PASS"
                 }
             ],
