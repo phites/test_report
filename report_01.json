@@ -12,7 +12,7 @@
     "equipment_used": [
         {
             "tool": "Digital Multimeter",
-            "model": "HDM3055 Series"
+            "model": "Hantek HDM3055"
         },
         {
             "tool": "Mixed Signal Oscilloscopes",
@@ -24,15 +24,19 @@
         },
         {
             "tool": "Digital PSU",
-            "model": "---"
+            "model": "NICE-POWER SPPS-S305"
+        },
+        {
+            "tool": "Thermal Camera",
+            "model": "InfiRay TS2 Plus"
         },
         {
             "tool": "Electronic Load",
-            "model": "---"
+            "model": "Atorch DL24"
         },
         {
             "tool": "Logic Analyzer",
-            "model": "---"
+            "model": "DSLogic Plus"
         }
     ],
     "test_results": [
