@@ -272,7 +272,7 @@
                 {
                     "test_id": "F-19",
                     "feature": "[MCB: Protocol] Buttons",
-                    "observation": "On-board reset button functionality confirmed (linked to debounced inputs, ref: F-18).",
+                    "observation": "Discrepancy identified in the on-board reset button net routing. Reset functionality is verified and accessible via the dedicated terminal block interface.",
                     "status": "PASS"
                 },
                 {
@@ -324,7 +324,7 @@
                     "status": "PASS"
                 }
             ],
-            "errata_notes": "(1) Assembly Note: Due to PCB space constraints, terminal blocks must be installed in an alternating configuration rather than consecutively. If a connection is required at a non-populated position, wires may be soldered directly to the pad. These assembly constraints do not impact the functional performance or electrical characteristics of the device.",
+            "errata_notes": "(1) Assembly Note: Due to PCB space constraints, terminal blocks must be installed in an alternating configuration rather than consecutively. If a connection is required at a non-populated position, wires may be soldered directly to the pad. These assembly constraints do not impact the functional performance or electrical characteristics of the device. (2) Revision Note: The routing discrepancy identified in F-19 has been rectified in Revision B hardware",
             "final_verdict": "PASS"
         }
     ]
