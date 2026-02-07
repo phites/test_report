@@ -119,8 +119,8 @@
                 },
                 {
                     "test_id": "E-10",
-                    "parameter": "[Protection] Reverse Current Blocking",
-                    "expected": "N/A",
+                    "parameter": "[Protection] Reverse Current Blocking (RCB)",
+                    "expected": "While RCB is present between the efuse and power monitoring section, while physically accessible, it is not advisable to provide power other than the dedicated input power ports. Not doing so will result into device unrecoverable failure.",
                     "measured": "Recommendation: Power should be supplied exclusively via the DC barrel jack or MCB Terminal Block.",
                     "status": "PASS"
                 },
@@ -134,8 +134,8 @@
                 {
                     "test_id": "E-12",
                     "parameter": "[Protection] +5.0V Rail Hiccup-mode protection",
-                    "expected": "Automatic entry into hiccup protection mode upon detection of short-circuit or sustained overcurrent (> 5A).",
-                    "measured": "System successfully entered hiccup mode during fault simulation, limiting power dissipation; automatic recovery confirmed upon fault clearance.",
+                    "expected": "Automatic entry into hiccup protection mode upon detection of short-circuit.",
+                    "measured": "System successfully entered hiccup mode during fault simulation, limiting excessive power dissipation; automatic recovery confirmed upon fault clearance.",
                     "status": "PASS"
                 },
                 {
