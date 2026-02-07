@@ -114,14 +114,14 @@
                     "test_id": "E-09",
                     "parameter": "[Protection] Reverse Polarity",
                     "expected": "System disabled",
-                    "measured": "System output effectively disabled; clamped at 3.29V.",
+                    "measured": "E-Fuse successfully blocked current flow through the input section.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-10",
                     "parameter": "[Protection] Reverse Current Blocking (RCB)",
                     "expected": "RCB present between eFuse and power monitoring. Power must be supplied only via dedicated input ports to prevent failure.",
-                    "measured": "Advisory: Power must be supplied exclusively via the DC barrel jack or MCB Terminal Block to prevent unrecoverable device failure.",
+                    "measured": "Advisory: Power must be supplied exclusively via the DC barrel jack or to the dedicated MCB Terminal Block to prevent unrecoverable device failure.",
                     "status": "PASS"
                 },
                 {
