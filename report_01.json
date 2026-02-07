@@ -4,7 +4,7 @@
         "report_title": "TEST REPORT",
         "project_name": "Supply, Testing and Delivery of (15) Custom Made Datalogger for Panay River Basin",
         "pcb_id": "W2025090622552098",
-        "revision": "A",
+        "revision": "B",
         "client_name": "Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA)",
         "test_date": "January 31, 2026",
         "tested_by": "John Papa"
@@ -51,7 +51,7 @@
                 "pcb_quality": "PASS",
                 "soldering": "PASS",
                 "component_orientation": "PASS",
-                "notes": "No visual defects observed during inspection."
+                "notes": "(1) No visual defects observed during inspection; (2) Paired with MCB with a serial no. of 23010188"
             },
             "electrical_tests": [
                 {
@@ -86,7 +86,7 @@
                     "test_id": "E-05",
                     "parameter": "[Protection] Current Protection and Power Limit",
                     "expected": "System shutdown if total current reaches 6.12A (±5.1%) or total power reaches ~100W",
-                    "measured": "Fault indicator activated (ref: E-04), followed by immediate system shutdown.",
+                    "measured": "Fault indicator activated (ref: E-07), followed by immediate system shutdown.",
                     "status": "PASS"
                 },
                 {
@@ -99,14 +99,14 @@
                 {
                     "test_id": "E-07",
                     "parameter": "[Indicator] Fault Indicator",
-                    "expected": "LED illuminates during undervoltage lockout (E-02) or power fail detection (E-03)",
+                    "expected": "LED illuminates (near the power reset switch) during undervoltage lockout (E-03) or power fail detection (E-05)",
                     "measured": "Indicator illuminates at the specified voltage thresholds.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-08",
                     "parameter": "[Indicator] Power Good Indicator",
-                    "expected": "LED illuminates when input voltage reaches ~11.89V",
+                    "expected": "LED illuminates (near the 3-pin header) when input voltage reaches ~11.89V",
                     "measured": "Indicator illuminates at the specified voltage thresholds.",
                     "status": "PASS"
                 },
@@ -127,15 +127,15 @@
                 {
                     "test_id": "E-11",
                     "parameter": "[Power] +5.0V Rail",
-                    "expected": "< 100mA",
-                    "measured": "42mA",
+                    "expected": "Regulated output voltage of 5.0V with continuous load capability of up to 5.0A.",
+                    "measured": "Verified stable output regulation under full 5.0A load conditions; voltage ripple verified within specifications.",
                     "status": "PASS"
                 },
                 {
                     "test_id": "E-12",
                     "parameter": "[Protection] +5.0V Rail Hiccup-mode protection",
-                    "expected": "< 100mA",
-                    "measured": "42mA",
+                    "expected": "Automatic entry into hiccup protection mode upon detection of short-circuit or sustained overcurrent (> 5A).",
+                    "measured": "System successfully entered hiccup mode during fault simulation, limiting power dissipation; automatic recovery confirmed upon fault clearance.",
                     "status": "PASS"
                 },
                 {
@@ -324,7 +324,7 @@
                     "status": "PASS"
                 }
             ],
-            "errata_notes": "None",
+            "errata_notes": "Notes: (1) The terminal block should be added alternately, due to space constrainst two consecutive terminal blocks cannot be added. End-user workaround would be to solder the actual wires to the pad of the desired terminal block when necessary. While any of these does not affect any of the functional performance and electronical characteristics of the board.",
             "final_verdict": "PASS"
         }
     ]
