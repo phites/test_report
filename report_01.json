@@ -35,6 +35,10 @@
             "model": "Atorch DL24"
         },
         {
+            "tool": "Signal Generator",
+            "model": "Atorch DL24"
+        },
+        {
             "tool": "Logic Analyzer",
             "model": "DSLogic Plus"
         }
@@ -201,8 +205,8 @@
                 },
                 {
                     "test_id": "F-08",
-                    "feature": "[MCB: Hardware] ???",
-                    "observation": "When MCU is removed, the system should not power up.",
+                    "feature": "[MCB: Hardware] Power Tree Control",
+                    "observation": "When MCU is removed, the whole MCB system should not power up.",
                     "status": "PASS"
                 },
                 {
@@ -261,7 +265,7 @@
                 },
                 {
                     "test_id": "F-18",
-                    "feature": "[MCB: Protocol] Debounced Inputs",
+                    "feature": "[MCB: Protocol] 8CH Debounced Inputs",
                     "observation": "Intelligently identify and remove debounced on the lines.",
                     "status": "PASS"
                 },
@@ -269,6 +273,54 @@
                     "test_id": "F-19",
                     "feature": "[MCB: Protocol] Buttons",
                     "observation": "On-board reset button attached to the debounced inputs (see F-18)",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-20",
+                    "feature": "[MCB: Hardware] Frequency Counter-capable pins.",
+                    "observation": "A sine wave of 60kHz is feed to the frequency counter capable pins, with a peak-to-peak voltage of 14V. While the on-board zenner we're capable of clamping the excessive voltage up to 4.96V to 5.04V only (up to 1mHz bandwidth) still does not enough to be used for application more than the MCU pin tolerance requirements.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-21",
+                    "feature": "[MCB: Hardware/Firmware] Medium Quality Sound (MQS), left and right channel",
+                    "observation": "The provided .wav file were successfully played through MQS both channels and is attached to a amplifier. The sounds can be heard accordingly.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-20",
+                    "feature": "[MCB: Hardware/Firmware] 4-CH LED Indicator",
+                    "observation": "LEDs are glowing accordingly with the code.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-21",
+                    "feature": "[MCB: Hardware/Firmware] Inter-Integrated Circuit (i2C) / TWI lines",
+                    "observation": "All on-board i2C device can be read, and is working properly. The lists are: 0x40, 0x48, 0x49, 0x4A, 0x4B, and 0x60",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-22",
+                    "feature": "Optional: [MCB: Hardware] Ethernet-ready",
+                    "observation": "Optional, however, tested. If ethernet are added, they can work.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-23",
+                    "feature": "[MCB: Hardware] External OLED",
+                    "observation": "Capable of providing power and controlling using the i2C lines.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-24",
+                    "feature": "[MCB: Hardware] On-board ADC and DAC",
+                    "observation": "All are tested and within the expected tolerances.",
+                    "status": "PASS"
+                },
+                {
+                    "test_id": "F-25",
+                    "feature": "[MCB: Hardware] External Relay Signal",
+                    "observation": "Works with a relay that expects a signal input of 3.3V",
                     "status": "PASS"
                 }
             ],
