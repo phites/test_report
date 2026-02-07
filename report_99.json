@@ -36,7 +36,7 @@
         },
         {
             "tool": "Signal Generator",
-            "model": "Atorch DL24"
+            "model": "JUNTEK JDS6600"
         },
         {
             "tool": "Logic Analyzer",
